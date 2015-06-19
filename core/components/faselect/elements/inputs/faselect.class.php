@@ -48,13 +48,6 @@ class FASelect extends cbBaseInput {
     public function getFieldProperties()
     {
         return array(
-            /*array(
-                'key' => 'class_options',
-                'fieldLabel' => 'List of display names and values',
-                'xtype' => 'textarea',
-                'default' => '',
-                'description' => 'Define available values as \"Displayed Value=placeholder_value\", one per line. If you only pass a single value per line (such as \"foo\"), that will be used as both displayed and placeholder value.'
-            ),*/
             array(
                 'key' => 'default_value',
                 'fieldLabel' => 'Default Value',
