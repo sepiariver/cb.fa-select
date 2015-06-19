@@ -9,22 +9,30 @@
         input.init = function () {
             // Generate the heading dropdown based on field configuration
             var select = dom.find('.contentblocks-field-faselectinput select');
-            
+//console.log(select);            
             // make a blank option at the top. though this disables the ability to make it required (in an obvious way)
             select.append('<option value=""></option>');
             
             // get the data set
-            var json = false;
-            $.get('/assets/components/faselect/js/faselectinputoptions.json', function(d) {
+            var faOutputPath = MODx.config['faselect.output_path'],
+                faOutputFile = MODx.config['faselect.output_filename'];
+                
+            if (!faOutputPath) faOutputPath = MODx.config['assets_path'] + 'components/faselect/js/';
+            if (!faOutputFile) faOutputFile = 'faselectinputoptions.json';
             
-                json = JSON.parse(d, function(k, v) {
+            if (faOutputPath.substring(0, MODx.config['base_path'].length) === MODx.config['base_path']) { 
+                faOutputPath = MODx.config['base_url'] + faOutputPath.substring(MODx.config['base_path'].length);
+            }
+            $.get(faOutputPath + faOutputFile, function(d) {
+//console.log(d);
+                $.each(d, function(k, v) {
                 
                     select.append('<option value="' + v + '">' + k + '</option>');
                 
                 });
             
             });
-            
+
             if (data.value) {
                 select.val(data.value);
             }

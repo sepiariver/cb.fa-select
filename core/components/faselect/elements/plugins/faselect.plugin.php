@@ -25,12 +25,12 @@ if ($modx->event->name === 'OnManagerPageInit') {
 
     // check output file
     $validFile = false;
-    $outputPath = $modx->getOption('faselect.output_path', null, $modx->getOption('assets_path') . 'components/faselect/js/';
+    $outputPath = $modx->getOption('faselect.output_path', null, $modx->getOption('assets_path') . 'components/faselect/js/');
     $outputFilename = $modx->getOption('faselect.output_filename', null, 'faselectinputoptions.json');
     $outputFileContent = file_get_contents($outputPath . $outputFilename);
     if ($outputFileContent) {
         $array = $modx->fromJSON($outputFileContent);
-        if (is_array($array) {
+        if (is_array($array)) {
             $validFile = true;
         }
     }
@@ -40,7 +40,7 @@ if ($modx->event->name === 'OnManagerPageInit') {
         if (!file_exists($outputPath) || !is_dir($outputPath)) {
         
             $dir = mkdir($outputPath, 0755, true);
-            if (!$dir || !is_writable($outputPath) {
+            if (!$dir || !is_writable($outputPath)) {
             
                 $modx->log(modX::LOG_LEVEL_ERROR, '[FASelect] could not create the required json file! Check filesystem permissions.');
                 return '';
@@ -85,7 +85,7 @@ if ($modx->event->name === 'OnManagerPageInit') {
             foreach($icons as $icon) {
                 
                 $label = ($titleCaseLabels) ? ucwords(str_replace('-', ' ', $icon)) : $icon;
-                $output[$label] =  $icon;
+                $output[$label] = $outputPrefix . $icon;
         
             }
     
@@ -100,4 +100,3 @@ if ($modx->event->name === 'OnManagerPageInit') {
     }
 
 }
-
