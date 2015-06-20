@@ -2,7 +2,7 @@
 
 class FASelect extends cbBaseInput {
     public $defaultIcon = 'chunk_A';
-    public $defaultTpl = '[[+value]]';
+    public $defaultTpl = '<i class="fa [[+value]]"></i>';
 
     
     /**
