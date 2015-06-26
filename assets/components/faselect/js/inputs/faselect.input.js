@@ -26,20 +26,12 @@
             $.get(faOutputPath + faOutputFile, function(d) {
 //console.log(d);
                 $.each(d, function(k, v) {
-                
-                    select.append('<option value="' + v + '">' + k + '</option>');
+                    var selected = (v === data.value) ? 'selected' : '';
+                    select.append('<option value="' + v + '" ' + selected + '>' + k + '</option>');
                 
                 });
             
             });
-
-            if (data.value) {
-                select.val(data.value);
-            }
-            else {
-                var def = data.properties.default_value || '';
-                select.val(def);
-            }
 
         };
 
