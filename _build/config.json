@@ -31,6 +31,36 @@
                         "type": "modx-combo-boolean"
                     }
                 ]
+            }],
+            "snippets": [{
+                "name": "fontAwesomeInputOptions",
+                "properties": [{
+                        "name": "cssUrl",
+                        "value": "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+                    },{
+                        "name": "regexPrefix",
+                        "value": "fa-"
+                    },{
+                        "name": "titleCaseLabels",
+                        "value": true,
+                        "type": "modx-combo-boolean"
+                    },{
+                        "name": "classPrefix",
+                        "value": "fa-"
+                    },{
+                        "name": "excludeClasses",
+                        "value": "ul,li"
+                    },{
+                        "name": "mode",
+                        "value": "tv"
+                    },{
+                        "name": "operator",
+                        "value": ""
+                    },{
+                        "name": "separator",
+                        "value": ""
+                    }
+                ]
             }]
         },
     "systemSettings": [{
