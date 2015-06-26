@@ -1,6 +1,6 @@
 <?php
 /**
- * FASelect
+ * FASelect for ContentBlocks
  * @author YJ Tso @sepiariver
  * GPL, no warranties, etc.
  * @var modX $modx
@@ -34,7 +34,15 @@ if ($modx->event->name === 'OnManagerPageInit') {
             $validFile = true;
         }
     }
-    
+
+    // check cache
+    $cacheKey = $modx->getOption('cacheKey', $scriptProperties, 'fontawesomecsssource');
+    $refreshOnCacheClear = $modx->getOption('refreshOnCacheClear', $scriptProperties, true);
+    $provider = $modx->cacheManager->getCacheProvider('default');
+    $css = $provider->get($cacheKey);
+    if ($refreshOnCacheClear && !$css) $validFile = false;
+
+    // if there's a valid file there's no more code to execute. Otherwise:
     if (!$validFile) {
     
         if (!file_exists($outputPath) || !is_dir($outputPath)) {
@@ -59,11 +67,6 @@ if ($modx->event->name === 'OnManagerPageInit') {
         $outputPrefix = $modx->getOption('classPrefix', $scriptProperties, 'fa-');
         // list output options
         $excludeClasses = array_filter(array_map('trim', explode(',', $modx->getOption('excludeClasses', $scriptProperties, 'ul,li'))));
-    
-        // check cache
-        $cacheKey = $modx->getOption('cacheKey', $scriptProperties, 'fontawesomecsssource');
-        $provider = $modx->cacheManager->getCacheProvider('default');
-        $css = $provider->get($cacheKey);
     
         if (!$css) {
             // get source file
