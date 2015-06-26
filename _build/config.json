@@ -1,15 +1,15 @@
 {
-    "name": "FASelect"
-    ,"lowCaseName": "faselect"
-    ,"description": "Font Awesome Select Input for Content Blocks in MODX CMS"
-    ,"author": "YJ Tso @sepiariver"
-    ,"version": "1.0.0-beta1"
-    ,"package":{
+    "name": "FASelect",
+    "lowCaseName": "faselect",
+    "description": "Font Awesome Select Input for Content Blocks in MODX CMS",
+    "author": "YJ Tso @sepiariver",
+    "version": "1.0.0-beta1",
+    "package":{
         "elements": {
             "plugins": [{
-                "name": "FASelect"
-                ,"events": ['ContentBlocks_RegisterInputs','OnManagerPageInit']
-                ,"properties": [{
+                "name": "FASelect",
+                "events": ["ContentBlocks_RegisterInputs","OnManagerPageInit"],
+                "properties": [{
                         "name": "cssUrl",
                         "value": "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
                     },{
@@ -17,18 +17,23 @@
                         "value": "fa-"
                     },{
                         "name": "titleCaseLabels",
-                        "value": 1
+                        "value": true,
+                        "type": "modx-combo-boolean"
                     },{
                         "name": "classPrefix",
                         "value": "fa-"
                     },{
                         "name": "excludeClasses",
                         "value": "ul,li"
+                    },{
+                        "name": "refreshOnCacheClear",
+                        "value": false,
+                        "type": "modx-combo-boolean"
                     }
                 ]
             }]
-        }
-        ,"systemSettings": [{
+        },
+    "systemSettings": [{
                 "key": "faselect.output_path"
                 ,"value": "{assets_path}components/faselect/js/"
             },{
