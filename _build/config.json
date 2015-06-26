@@ -3,7 +3,7 @@
     "lowCaseName": "faselect",
     "description": "Font Awesome Select Input for Content Blocks in MODX CMS",
     "author": "YJ Tso @sepiariver",
-    "version": "1.0.0-beta1",
+    "version": "1.0.0-rc1",
     "package":{
         "elements": {
             "plugins": [{
