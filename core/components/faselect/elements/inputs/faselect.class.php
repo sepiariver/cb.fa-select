@@ -2,9 +2,9 @@
 
 class FASelect extends cbBaseInput {
     public $defaultIcon = 'chunk_A';
-    public $defaultTpl = '<i class="fa [[+value]]"></i>';
+    public $defaultTpl = '<i class="fa [[+value]] [[+size]]"></i>';
 
-    
+
     /**
      * @return array
      */
@@ -21,12 +21,12 @@ class FASelect extends cbBaseInput {
     public function getTemplates()
     {
         $tpls = array();
-        
+
         // Grab the template from a .tpl file
         $corePath = $this->modx->getOption('faselect.core_path', null, MODX_CORE_PATH . 'components/faselect/');
 
         $template = file_get_contents($corePath . 'templates/faselect.tpl');
-        
+
         // Wrap the template, giving the input a reference of "faselect", and
         // add it to the returned array.
         $tpls[] = $this->contentBlocks->wrapInputTpl('faselect', $template);
@@ -35,13 +35,13 @@ class FASelect extends cbBaseInput {
 
     public function getName()
     {
-        return 'Font Awesome Select'; 
+        return 'Font Awesome Select';
         // return $this->modx->lexicon('faselect.input_name');
     }
-    
+
     public function getDescription()
     {
-        return 'Select box (available placeholders: [[+value]], [[+display]]'; 
+        return 'Select box (available placeholders: [[+value]], [[+display]]';
         // return $this->modx->lexicon('faselect.input_description');
     }
 
