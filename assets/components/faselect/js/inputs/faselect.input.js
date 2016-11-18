@@ -17,11 +17,11 @@
             var faOutputPath = MODx.config['faselect.output_path'],
                 faOutputFile = MODx.config['faselect.output_filename'];
                 
-            if (!faOutputPath) faOutputPath = MODx.config['assets_path'] + 'components/faselect/js/';
+            if (!faOutputPath) faOutputPath = MODx.config['assets_url'] + 'components/faselect/js/';
             if (!faOutputFile) faOutputFile = 'faselectinputoptions.json';
             
-            if (faOutputPath.substring(0, MODx.config['base_path'].length) === MODx.config['base_path']) { 
-                faOutputPath = MODx.config['base_url'] + faOutputPath.substring(MODx.config['base_path'].length);
+            if (faOutputPath.substring(0, MODx.config['base_url'].length) === MODx.config['base_url']) { 
+                faOutputPath = MODx.config['base_url'] + faOutputPath.substring(MODx.config['base_url'].length);
             }
             $.get(faOutputPath + faOutputFile, function(d) {
 //console.log(d);
